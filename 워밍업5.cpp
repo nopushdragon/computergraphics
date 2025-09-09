@@ -59,7 +59,12 @@ int main() {
 
         for (int i = 0; i < BOARD_Y; i++) {
             for (int j = 0; j < BOARD_X; j++) {
-                cout << board[i][j];
+                if (board[i][j] == '%') {
+                    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+                    cout << board[i][j];
+                    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                }
+                else cout << board[i][j];
             }
             cout << endl;
         }
@@ -72,64 +77,88 @@ int main() {
         case 'x':
             nemo1.x1++; 
             nemo1.x2++;
+            break;
+        case'1':
             nemo2.x1++; 
             nemo2.x2++;
             break;
         case 'X':
             nemo1.x1--; 
             nemo1.x2--;
+            break;
+        case '2':
             nemo2.x1--; 
             nemo2.x2--;
             break;
         case 'y':
             nemo1.y1++; 
             nemo1.y2++;
+            break;
+        case '3':
             nemo2.y1++; 
             nemo2.y2++;
             break;
         case 'Y':
             nemo1.y1--; 
             nemo1.y2--;
+            break;
+        case '4':
             nemo2.y1--; 
             nemo2.y2--;
             break;
         case 's':
-            nemo1.x2++; 
-            nemo1.y2++;
-            nemo2.x2++; 
-            nemo2.y2++;
+            if(nemo1.x2 != BOARD_X-1)nemo1.x2++; 
+            if(nemo1.y2 != BOARD_Y-1)nemo1.y2++;
+            break;
+        case'5':
+            if(nemo2.x2 != BOARD_X-1)nemo2.x2++; 
+            if(nemo2.y2 != BOARD_Y-1)nemo2.y2++;
             break;
         case 'S':
-            nemo1.x2--;
-            nemo1.y2--;
-            nemo2.x2--;
-            nemo2.y2--;
+            if(nemo1.x2 != nemo1.x1+1 && nemo1.x2 != 0 )nemo1.x2--;
+            if(nemo1.y2 != nemo1.y1+1 && nemo1.y2 != 0 )nemo1.y2--;
+            break;
+        case '6':
+            if(nemo2.x2 != nemo2.x1+1 && nemo2.x2 != 0)nemo2.x2--;
+            if(nemo2.y2 != nemo2.y1+1 && nemo2.y2 != 0)nemo2.y2--;
             break;
         case 'i':
             nemo1.x2++;
+            break;
+        case '7':
             nemo2.x2++;
             break;
         case 'I':
             nemo1.x2--;
+            break;
+        case '8':
             nemo2.x2--;
             break;
         case 'j':
             nemo1.y2++;
+            break;
+        case '9':
             nemo2.y2++;
             break;
         case 'J': 
             nemo1.y2--;
+            break;
+        case '0':
             nemo2.y2--;
             break;
         case 'a':
             nemo1.x2++;
             nemo1.y2--;
+            break;
+        case'-':
             nemo2.x2++;
             nemo2.y2--;
             break;
         case 'A':
             nemo1.x2--;
             nemo1.y2++;
+            break;
+        case '=':
             nemo2.x2--;
             nemo2.y2++;
             break;

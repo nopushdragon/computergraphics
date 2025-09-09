@@ -70,7 +70,13 @@ int main()
 			n1--;
 			n2--;
 
-			if (board[n1][x1] != '*' || board[n2][x2] != '*') {
+			if (a1 < 'a' || a1 > 'e' || a2 < 'a' || a2 > 'e' || n1 < 0 || n1 > 5 || n2 < 0 || n2 > 5) {
+				cout << "거긴 보드 밖이지렁~~~";
+				Sleep(2000);
+				system("cls");
+				continue;
+			}
+			else if (board[n1][x1] != '*' || board[n2][x2] != '*') {
 				cout << "이미 선택했던 곳이지렁~~~~";
 				Sleep(2000);
 				system("cls");
@@ -180,6 +186,12 @@ int main()
 		}
 		else if (cmd == 'q') {
 			exit(0);
+		}
+		else {
+			cout << "그것은 명령이 아니다잉";
+			Sleep(2000);
+			system("cls");
+			continue;
 		}
 
 		system("cls");

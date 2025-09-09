@@ -63,7 +63,8 @@ int main()
 
 		switch (input) {
 		case 'w':
-			if(player.y > 0)player.y--;
+			if (player.y > 0)player.y--;
+			else step = false;
 			if (box[player.y] == player.x) {
 				player.y++;
 				step = false;
@@ -71,6 +72,7 @@ int main()
 			break;
 		case 'a':
 			if (player.x > 0)player.x--;
+			else step = false;
 			if (box[player.y] == player.x) {
 				player.x++;
 				step = false;
@@ -78,6 +80,7 @@ int main()
 			break;
 		case's':
 			if (player.y < 29)player.y++;
+			else step = false;
 			if (box[player.y] == player.x) {
 				player.y--;
 				step = false;
@@ -85,6 +88,7 @@ int main()
 			break;
 		case'd':
 			if (player.x < 29)player.x++;
+			else step = false;
 			if (box[player.y] == player.x) {
 				player.x--;
 				step = false;
